@@ -1,0 +1,38 @@
+[package]
+name = "io-timer"
+description = "Set of I/O-free coroutines to manage timers"
+version = "1.0.0"
+authors = ["soywod <clement.douin@posteo.net>"]
+edition = "2021"
+license = "MIT"
+categories = ["api-bindings"]
+keywords = ["io-free", "coroutine", "timer", "stream", "pomodoro"]
+homepage = "https://pimalaya.org"
+documentation = "https://docs.rs/io-timer/latest/io_timer"
+repository = "https://github.com/pimalaya/io-timer"
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[features]
+default = []
+client = []
+server = []
+
+[dev-dependencies]
+env_logger = "0.11"
+io-stream = { version = "1", features = ["std", "tokio"] }
+mock_instant = "0.3"
+tempdir = "0.3"
+tokio = { version = "1", features = ["full"] }
+
+[dependencies]
+io-stream = "1"
+log = "0.4"
+memchr = "2.7"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[patch.crates-io]
+io-stream.git = "https://github.com/pimalaya/io-stream"
